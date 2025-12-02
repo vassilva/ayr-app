@@ -1,0 +1,140 @@
+appId: com.ceiia.ayr
+name: criar_conta
+---
+
+
+ INICIAR APP E PASSAR ONBOARDING
+
+
+- launchApp
+
+# Saltar onboarding (se aparecer)
+- scrollUntilVisible:
+    element: "Saltar"
+    direction: RIGHT
+    visibilityPercentage: 80
+    timeout: 30000
+
+- tapOn:
+    text: "Saltar"
+    optional: true
+
+# Ir para tela de Login / Criar Conta
+- tapOn:
+    text: "(Entrar|Login|Iniciar sessão)"
+    optional: true
+
+
+
+ ACESSAR A TELA DE CRIAÇÃO DE CONTA
+
+
+- tapOn:
+    id: "com.ceiia.ayr:id/sign_up_tv"
+    optional: false
+
+
+
+ PREENCHER FORMULÁRIO DE CRIAÇÃO DE CONTA
+
+
+# Primeiro nome
+- tapOn:
+    point: "50%,19%"
+- inputText: "Vicente"
+
+# Último nome
+- tapOn:
+    point: "50%,29%"
+- inputText: "Silva"
+
+# Email
+- tapOn:
+    point: "50%,39%"
+- inputText: "vicente.silva.teste@ayr.com"
+
+# Número de Telemóvel  (campo com picker +351)
+- tapOn:
+    point: "58%,48%"
+- inputText: "920557161"
+
+# Palavra-passe
+- tapOn:
+    id: "com.ceiia.ayr:id/login_password_til"
+- tapOn:
+    point: "50%,59%"
+- inputText: "Vi@4048***!!!"
+
+# Seguinte  (ID correto)
+- tapOn:
+    id: "com.ceiia.ayr:id/next_btn"
+
+
+
+ 4. ACEITAR TERMOS
+
+
+ Aceitar CheckBox dos termos
+- tapOn:
+    point: "7%,52%"
+
+# Criar conta (mesmo botão next_btn muda de label)
+- tapOn:
+    id: "com.ceiia.ayr:id/next_btn"
+
+
+
+ 5. INSERIR TOKEN (MANUAL)
+
+
+# Clicar no campo do código
+- tapOn:
+    point: "50%,39%"
+
+
+# Botão Verificar
+- tapOn:
+    id: "com.ceiia.ayr:id/verify_btn"
+
+
+
+ 6. MENSAGEM DE SUCESSO
+
+
+- assertVisible:
+    text: "Conta criada com sucesso"
+    optional: true
+
+- tapOn:
+    id: "android:id/button1"
+    optional: true
+
+
+
+ 7. PERMISSÕES 
+
+- tapOn:
+    id: "android:id/button1"
+    optional: true
+
+
+
+ 8. LOGOUT (MESMO PADRÃO DO TESTE 2)
+
+
+# Abrir menu
+- tapOn:
+    id: "com.ceiia.ayr:id/user_settings_movement_iv"
+
+# Sair
+- tapOn:
+    text: "Sair"
+
+# Confirmar saída
+- tapOn:
+    point: "49%,46%"
+    optional: true
+
+# Validar retorno ao login
+- assertVisible:
+    text: "(Entrar|Login|Iniciar sessão)"

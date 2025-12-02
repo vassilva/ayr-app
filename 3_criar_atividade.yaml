@@ -1,0 +1,154 @@
+appId: com.ceiia.ayr
+name: criar_atividade
+---
+
+
+1. ABRIR A APP
+
+
+- launchApp
+
+# Onboarding – Saltar se aparecer
+- scrollUntilVisible:
+    element: "Saltar"
+    direction: RIGHT
+    visibilityPercentage: 80
+    timeout: 30000
+
+- tapOn:
+    text: "Saltar"
+    optional: true
+
+# Aceder ao ecrã de login
+- tapOn:
+    text: "(Entrar|Login|Iniciar sessão)"
+    optional: true
+
+
+
+ 2. LOGIN  
+
+
+# Campo Número de telemóvel
+- tapOn:
+    point: "58%,33%"
+
+- inputText:
+    text: "920557161"
+    enter: false
+- hideKeyboard
+
+# Campo Palavra-passe
+- tapOn:
+    point: "50%,40%"
+
+- inputText:
+    text: "Vi@4048***!!!"
+    enter: false
+- hideKeyboard
+
+# Botão Login / Seguinte
+- tapOn:
+    id: "com.ceiia.ayr:id/login_btn"
+
+# Aceitar pop-up se aparecer
+- tapOn:
+    id: "android:id/button1"
+    optional: true
+
+# Validar que login funcionou
+- assertVisible:
+    id: "com.ceiia.ayr:id/user_settings_movement_iv"
+
+
+ 3. CRIAR ATIVIDADE (RIDE)
+
+
+# Abrir Ride
+- tapOn:
+    id: "com.ceiia.ayr:id/action_iv"
+    index: 0
+
+# Selecionar tipo (ícone Ride)
+- tapOn:
+    point: "13%,17%"
+
+# Iniciar atividade
+- tapOn:
+    id: "com.ceiia.ayr:id/start_activity_btn"
+
+# Confirmação opcional 
+- tapOn:
+    point: "50%,90%"
+    optional: true
+
+
+
+ 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão)
+
+
+# Botão "Terminar" na barra inferior
+# (id pode falhar em algumas execuções, por isso é opcional)
+- tapOn:
+    id: "com.ceiia.ayr:id/stop_btn"
+    optional: true
+
+# Mesma ação, por texto (Terminar)
+- tapOn:
+    text: "Terminar"
+    optional: true
+
+# Fallback por coordenada – este é o clique que GARANTE o toque
+- tapOn:
+    point: "50%,90%"
+
+# Pop-up "Terminar Sessão" – botão "Terminar"
+- tapOn:
+    text: "Terminar sessão"
+    optional: true
+
+- tapOn:
+    text: "Terminar"
+    optional: true
+
+- tapOn:
+    point: "74%,90%"
+    optional: true
+
+# Mensagem de sucesso (se aparecer)
+- assertVisible:
+    text: "Sucesso"
+    optional: true
+
+# Voltar da tela de atividade para a Home
+- tapOn:
+    id: "com.ceiia.ayr:id/back_ib"
+    optional: true
+
+- tapOn:
+    point: "5%,5%"
+    optional: true
+
+# Confirmar que estamos na Home (botões de Ride/Subway/Bus/Train/Scooter)
+- assertVisible:
+    id: "com.ceiia.ayr:id/action_iv"
+
+
+ 4. LOGOUT
+
+# Abrir menu do utilizador 
+- tapOn:
+    id: "com.ceiia.ayr:id/user_settings_movement_iv"
+
+# Tocar em "Sair"
+- tapOn:
+    text: "Sair"
+
+# Confirmar saída (pop-up)
+- tapOn:
+    point: "49%,46%"
+    optional: true
+
+# Validar que voltou à tela de login
+- assertVisible:
+    text: "(Entrar|Login|Iniciar sessão)"

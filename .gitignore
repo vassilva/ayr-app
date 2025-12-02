@@ -1,0 +1,32 @@
+# Maestro test artifacts
+.maestro/
+**/maestro-report/
+**/debug-artifacts/
+**/screenshots/
+
+# Android platform-tools (se estiver dentro do projeto)
+platform-tools/
+*.apk
+
+# Logs temporários
+*.log
+
+# Arquivos de sistema / editor
+.DS_Store
+Thumbs.db
+
+# Python virtual env (se usar)
+venv/
+.env/
+
+# Node modules (se usar Maestro Studio com npm)
+node_modules/
+
+# Backup files
+*.bak
+*.tmp
+*.swp
+
+# IDE configs
+.vscode/
+.idea/

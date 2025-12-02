@@ -1,0 +1,71 @@
+appId: com.ceiia.ayr
+name: login_conta
+---
+
+ 1. Iniciar app
+- launchApp
+
+ 2. Continuar onboarding até encontrar botão Saltar
+- scrollUntilVisible:
+    element: "Saltar"
+    direction: RIGHT
+    visibilityPercentage: 80
+    timeout: 30000
+
+ 3. Saltar (se aparecer)
+- tapOn:
+    text: "Saltar"
+    optional: true
+
+ 4. Aceder ao ecrã de login 
+- tapOn:
+    text: "(Entrar|Login|Iniciar sessão)"
+    optional: true
+
+ 5. Campo Número de telemóvel 
+- tapOn:
+    point: "58%,33%"
+
+- inputText:
+    text: "920557161"
+    enter: false
+- hideKeyboard
+
+ 6. Campo Palavra-passe 
+- tapOn:
+    point: "50%,40%"
+
+- inputText:
+    text: "Vi@4048***!!!"
+    enter: false
+- hideKeyboard
+
+ 7. Botão Login / Seguinte (ID real)
+- tapOn:
+    id: "com.ceiia.ayr:id/login_btn"
+
+ 7.1 Aceitar pop-up de primeiro login 
+- tapOn:
+    id: "android:id/button1"
+    optional: true
+
+ 8. Validar que o login foi efetuado com sucesso
+
+- assertVisible:
+    id: "com.ceiia.ayr:id/user_settings_movement_iv"
+
+# 9. Abrir menu do utilizador (perfil)
+- tapOn:
+    id: "com.ceiia.ayr:id/user_settings_movement_iv"
+
+# 10. Tocar em "Sair"
+- tapOn: "Sair"
+
+# 11. Confirmar logout (se pop-up aparecer)
+- tapOn:
+    point: "49%,46%"
+    optional: true
+
+# 12. Validar que voltou à tela de login
+- assertVisible:
+    text: "(Entrar|Login|Iniciar sessão)"
