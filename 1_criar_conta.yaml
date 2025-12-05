@@ -1,42 +1,36 @@
 appId: com.ceiia.ayr
 name: criar_conta
 ---
-
-
- INICIAR APP E PASSAR ONBOARDING
-
+# 1. ABRIR A APP
 
 - launchApp
 
-# Saltar onboarding (se aparecer)
+# Onboarding – Saltar se aparecer
 - scrollUntilVisible:
     element: "Saltar"
     direction: RIGHT
-    visibilityPercentage: 80
-    timeout: 30000
+    visibilityPercentage: 20
+    timeout: 15000
+    optional: true
 
 - tapOn:
     text: "Saltar"
     optional: true
 
-# Ir para tela de Login / Criar Conta
+# Aceder ao ecrã de Login / Criar Conta
 - tapOn:
     text: "(Entrar|Login|Iniciar sessão)"
     optional: true
 
 
-
- ACESSAR A TELA DE CRIAÇÃO DE CONTA
-
+# 2. ACEDER AO FORMULÁRIO DE CRIAÇÃO DE CONTA
 
 - tapOn:
     id: "com.ceiia.ayr:id/sign_up_tv"
     optional: false
 
 
-
- PREENCHER FORMULÁRIO DE CRIAÇÃO DE CONTA
-
+# 3. PREENCHER FORMULÁRIO
 
 # Primeiro nome
 - tapOn:
@@ -53,7 +47,7 @@ name: criar_conta
     point: "50%,39%"
 - inputText: "vicente.silva.teste@ayr.com"
 
-# Número de Telemóvel  (campo com picker +351)
+# Número de Telemóvel
 - tapOn:
     point: "58%,48%"
 - inputText: "920557161"
@@ -65,68 +59,65 @@ name: criar_conta
     point: "50%,59%"
 - inputText: "Vi@4048***!!!"
 
-# Seguinte  (ID correto)
+# Seguinte
 - tapOn:
     id: "com.ceiia.ayr:id/next_btn"
 
 
+# 4. ACEITAR TERMOS
 
- 4. ACEITAR TERMOS
-
-
- Aceitar CheckBox dos termos
+# Aceitar termos
 - tapOn:
     point: "7%,52%"
 
-# Criar conta (mesmo botão next_btn muda de label)
+# Criar conta
 - tapOn:
     id: "com.ceiia.ayr:id/next_btn"
 
 
+# 5. INSERIR TOKEN (MANUAL)
 
- 5. INSERIR TOKEN (MANUAL)
-
-
-# Clicar no campo do código
+# Selecionar campo do token
 - tapOn:
     point: "50%,39%"
 
+# O UTILIZADOR INSERE O TOKEN MANUALMENTE E TOCA EM "VERIFICAR"
+# Maestro aguarda o popup de sucesso ("Success")
+- extendedWaitUntil:
+    visible: "Success"
+    timeout: 60000
 
-# Botão Verificar
+
+# 6. CONFIRMAÇÃO DE SUCESSO (FECHAR POPUP)
+
+# Clicar no botão OK (ID, texto e coordenada para garantir)
 - tapOn:
-    id: "com.ceiia.ayr:id/verify_btn"
-
-
-
- 6. MENSAGEM DE SUCESSO
-
-
-- assertVisible:
-    text: "Conta criada com sucesso"
+    id: "android:id/button1"
     optional: true
+
+- tapOn:
+    text: "OK"
+    optional: true
+
+- tapOn:
+    point: "79%,53%"
+    optional: true
+
+
+# 7. PERMISSÕES (se aparecer)
 
 - tapOn:
     id: "android:id/button1"
     optional: true
 
 
+# 8. LOGOUT
 
- 7. PERMISSÕES 
-
-- tapOn:
-    id: "android:id/button1"
-    optional: true
-
-
-
- 8. LOGOUT (MESMO PADRÃO DO TESTE 2)
-
-
-# Abrir menu
+# Abrir menu do utilizador
 - tapOn:
     id: "com.ceiia.ayr:id/user_settings_movement_iv"
 
-# Sair
+# Tocar em "Sair"
 - tapOn:
     text: "Sair"
 
@@ -135,6 +126,6 @@ name: criar_conta
     point: "49%,46%"
     optional: true
 
-# Validar retorno ao login
+# Validar retorno à tela de login
 - assertVisible:
     text: "(Entrar|Login|Iniciar sessão)"

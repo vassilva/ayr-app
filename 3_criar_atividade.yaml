@@ -1,10 +1,7 @@
 appId: com.ceiia.ayr
 name: criar_atividade
 ---
-
-
-1. ABRIR A APP
-
+# 1. ABRIR A APP
 
 - launchApp
 
@@ -24,10 +21,7 @@ name: criar_atividade
     text: "(Entrar|Login|Iniciar sessão)"
     optional: true
 
-
-
- 2. LOGIN  
-
+# 2. LOGIN
 
 # Campo Número de telemóvel
 - tapOn:
@@ -36,6 +30,7 @@ name: criar_atividade
 - inputText:
     text: "920557161"
     enter: false
+
 - hideKeyboard
 
 # Campo Palavra-passe
@@ -45,6 +40,7 @@ name: criar_atividade
 - inputText:
     text: "Vi@4048***!!!"
     enter: false
+
 - hideKeyboard
 
 # Botão Login / Seguinte
@@ -60,9 +56,7 @@ name: criar_atividade
 - assertVisible:
     id: "com.ceiia.ayr:id/user_settings_movement_iv"
 
-
- 3. CRIAR ATIVIDADE (RIDE)
-
+# 3. CRIAR ATIVIDADE (RIDE)
 
 # Abrir Ride
 - tapOn:
@@ -77,18 +71,14 @@ name: criar_atividade
 - tapOn:
     id: "com.ceiia.ayr:id/start_activity_btn"
 
-# Confirmação opcional 
+# Confirmação opcional
 - tapOn:
     point: "50%,90%"
     optional: true
 
-
-
- 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão)
-
+# 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão)
 
 # Botão "Terminar" na barra inferior
-# (id pode falhar em algumas execuções, por isso é opcional)
 - tapOn:
     id: "com.ceiia.ayr:id/stop_btn"
     optional: true
@@ -98,7 +88,7 @@ name: criar_atividade
     text: "Terminar"
     optional: true
 
-# Fallback por coordenada – este é o clique que GARANTE o toque
+# Fallback por coordenada – clique garantido
 - tapOn:
     point: "50%,90%"
 
@@ -133,10 +123,9 @@ name: criar_atividade
 - assertVisible:
     id: "com.ceiia.ayr:id/action_iv"
 
+# 4. LOGOUT
 
- 4. LOGOUT
-
-# Abrir menu do utilizador 
+# Abrir menu do utilizador
 - tapOn:
     id: "com.ceiia.ayr:id/user_settings_movement_iv"
 
