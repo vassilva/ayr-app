@@ -71,7 +71,7 @@ name: criar_atividade
 - tapOn:
     id: "com.ceiia.ayr:id/start_activity_btn"
 
-# 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão)
+# 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão) - Funcional
 
 # Botão "Terminar" na barra inferior
 - tapOn:

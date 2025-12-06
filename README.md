@@ -12,4 +12,3 @@ Realiza autenticação, valida elementos da home e efetua logout.
 ----------------------------------------------------------------------------------------------------
  Teste 3 — criar atividade (3_criar_atividade.yaml)
  Inicia uma atividade, termina a sessão e realiza logout.
-* O teste reinicia a atividade antes de efetuar o logout.
