@@ -1,11 +1,10 @@
 appId: com.ceiia.ayr
 name: criar_conta
 ---
-# 1. ABRIR A APP
-
+# 1. Abrir a aplicação
 - launchApp
 
-# Onboarding – Saltar se aparecer
+# 2. Saltar onboarding, se aparecer
 - scrollUntilVisible:
     element: "Saltar"
     direction: RIGHT
@@ -13,119 +12,99 @@ name: criar_conta
     timeout: 15000
     optional: true
 
+# 3. Tocar em "Saltar", se visível
 - tapOn:
     text: "Saltar"
     optional: true
 
-# Aceder ao ecrã de Login / Criar Conta
+# 4. Aceder ao ecrã de Login / Criar Conta, se necessário
 - tapOn:
     text: "(Entrar|Login|Iniciar sessão)"
     optional: true
 
-
-# 2. ACEDER AO FORMULÁRIO DE CRIAÇÃO DE CONTA
-
+# 5. Abrir formulário de criação de conta
 - tapOn:
     id: "com.ceiia.ayr:id/sign_up_tv"
-    optional: false
 
-
-# 3. PREENCHER FORMULÁRIO
-
-# Primeiro nome
+# 6. Preencher primeiro nome
 - tapOn:
     point: "50%,19%"
 - inputText: "Vicente"
 
-# Último nome
+# 7. Preencher último nome
 - tapOn:
     point: "50%,29%"
 - inputText: "Silva"
 
-# Email
+# 8. Preencher email
 - tapOn:
     point: "50%,39%"
 - inputText: "vicente.silva.teste@ayr.com"
 
-# Número de Telemóvel
+# 9. Preencher número de telemóvel
 - tapOn:
     point: "58%,48%"
 - inputText: "920557161"
 
-# Palavra-passe
+# 10. Preencher palavra-passe
 - tapOn:
     id: "com.ceiia.ayr:id/login_password_til"
+    optional: true
 - tapOn:
     point: "50%,59%"
 - inputText: "Vi@4048***!!!"
 
-# Seguinte
+# 11. Avançar para aceitação dos termos
 - tapOn:
     id: "com.ceiia.ayr:id/next_btn"
 
-
-# 4. ACEITAR TERMOS
-
-# Aceitar termos
+# 12. Aceitar termos
 - tapOn:
     point: "7%,52%"
 
-# Criar conta
+# 13. Confirmar criação de conta
 - tapOn:
     id: "com.ceiia.ayr:id/next_btn"
 
-
-# 5. INSERIR TOKEN (MANUAL)
-
-# Selecionar campo do token
+# 14. Selecionar campo do token
 - tapOn:
     point: "50%,39%"
 
-# O UTILIZADOR INSERE O TOKEN MANUALMENTE E TOCA EM "VERIFICAR"
-# Maestro aguarda o popup de sucesso ("Success")
+# 15. Aguardar sucesso após token inserido manualmente
 - extendedWaitUntil:
     visible: "Success"
     timeout: 60000
 
-
-# 6. CONFIRMAÇÃO DE SUCESSO (FECHAR POPUP)
-
-# Clicar no botão OK (ID, texto e coordenada para garantir)
+# 16. Confirmar popup de sucesso
 - tapOn:
     id: "android:id/button1"
     optional: true
-
 - tapOn:
     text: "OK"
     optional: true
-
 - tapOn:
     point: "79%,53%"
     optional: true
 
-
-# 7. PERMISSÕES (se aparecer)
-
+# 17. Permitir permissões, se aparecer
 - tapOn:
     id: "android:id/button1"
     optional: true
 
-
-# 8. LOGOUT
-
-# Abrir menu do utilizador
+# 18. Abrir menu do utilizador
 - tapOn:
     id: "com.ceiia.ayr:id/user_settings_movement_iv"
 
-# Tocar em "Sair"
+# 19. Fazer logout
 - tapOn:
     text: "Sair"
 
-# Confirmar saída
+# 20. Confirmar saída
 - tapOn:
     point: "49%,46%"
     optional: true
 
-# Validar retorno à tela de login
+# 21. Validar retorno à tela de login
 - assertVisible:
     text: "(Entrar|Login|Iniciar sessão)"
+    

@@ -45,7 +45,7 @@ name: criar_atividade
 
 # Botão Login / Seguinte
 - tapOn:
-    id: "com.ceiia.ayr:id/login_btn"
+    text: "Seguinte"
 
 # Aceitar pop-up se aparecer
 - tapOn:
@@ -71,52 +71,19 @@ name: criar_atividade
 - tapOn:
     id: "com.ceiia.ayr:id/start_activity_btn"
 
-# Confirmação opcional
-- tapOn:
-    point: "50%,90%"
-    optional: true
-
-# 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão)
+# 3.1 TERMINAR A ATIVIDADE  (Terminar → Terminar sessão) - Funcional
 
 # Botão "Terminar" na barra inferior
 - tapOn:
     id: "com.ceiia.ayr:id/stop_btn"
-    optional: true
-
-# Mesma ação, por texto (Terminar)
-- tapOn:
-    text: "Terminar"
-    optional: true
-
-# Fallback por coordenada – clique garantido
-- tapOn:
-    point: "50%,90%"
 
 # Pop-up "Terminar Sessão" – botão "Terminar"
 - tapOn:
-    text: "Terminar sessão"
-    optional: true
-
-- tapOn:
-    text: "Terminar"
-    optional: true
-
-- tapOn:
-    point: "74%,90%"
-    optional: true
-
-# Mensagem de sucesso (se aparecer)
-- assertVisible:
-    text: "Sucesso"
-    optional: true
+    id: "com.ceiia.ayr:id/btnEnd"
 
 # Voltar da tela de atividade para a Home
 - tapOn:
     id: "com.ceiia.ayr:id/back_ib"
-    optional: true
-
-- tapOn:
-    point: "5%,5%"
     optional: true
 
 # Confirmar que estamos na Home (botões de Ride/Subway/Bus/Train/Scooter)
